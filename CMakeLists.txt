@@ -10,11 +10,11 @@ include_directories(
   ${CMAKE_INSTALL_PREFIX}/include
   ${PCL_INCLUDE_DIRS})
 link_directories(
-  ${CMAKE_INSTALL_PREFIX})
+  ${CMAKE_INSTALL_PREFIX}/lib)
 
 ExternalProject_Add(gpg_modified
   GIT_REPOSITORY https://github.com/siyuanfeng-tri/gpg_modified.git
-  GIT_TAG 4b202f7aafb036a68fe76b141f02b4a693d39e97
+  GIT_TAG afdbacd
   CMAKE_ARGS
   -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX})
 
