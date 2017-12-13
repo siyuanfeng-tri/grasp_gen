@@ -18,6 +18,8 @@ ExternalProject_Add(gpg_modified
   CMAKE_ARGS
   -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX})
 
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
 add_library(grasp_gen SHARED
   src/anti_podal_grasp.cc)
 add_dependencies(grasp_gen gpg_modified)
