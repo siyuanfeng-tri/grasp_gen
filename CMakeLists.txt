@@ -20,22 +20,13 @@ ExternalProject_Add(gpg_modified
 
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
-add_definitions(
-  -DGRASP_PARAM_PATH="${PROJECT_SOURCE_DIR}/../cfg/grasp_params")
-
 add_library(grasp_gen SHARED
   src/anti_podal_grasp.cc)
 add_dependencies(grasp_gen gpg_modified)
 target_link_libraries(grasp_gen ${PCL_LIBRARIES} grasp_candidates_generator libgpg_config_file.a)
 
-add_executable(test_grasp src/test.cc)
-target_link_libraries(test_grasp grasp_gen)
-
 install(TARGETS grasp_gen
   DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
-
-install(TARGETS test_grasp
-  DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 install(DIRECTORY include/grasp_gen
   DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
